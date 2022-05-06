@@ -32,7 +32,7 @@ mv /home/roboshop/catalogue-main /home/roboshop/catalogue &>>$LOG
 Stat $?
 
 Print "Install NodeJS Dependencies"
-npm install &>>$LOG
+npm run ng --version &>>$LOG
 Stat $?
 
 
