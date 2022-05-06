@@ -14,7 +14,7 @@ fi
 Stat $?
 
 Print "Download Catalogue"
-$ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
+curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
 Stat $?
 
 Print "Remove Old Content"
@@ -30,7 +30,7 @@ mv /home/roboshop/catalogue-main /home/roboshop/catalogue &>>$LOG
 Stat $?
 
 Print "Install NodeJS Dependencies"
-$ npm install --unsafe-perm &>>$LOG
+npm install --unsafe-perm &>>$LOG
 Stat $?
 
 
