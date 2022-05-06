@@ -40,16 +40,16 @@ DOWNLOAD() {
   fi
 }
 
-#ROBOSHOP_USER() {
- # Print "Add RoboShop User"
-  #id roboshop &>>$LOG
-  #if [ $? -eq 0 ]; then
-    #echo User RoboShop already exists &>>$LOG
-  #else
-    #useradd roboshop  &>>$LOG
-  #fi
-  #Stat $?
-#}
+ROBOSHOP_USER() {
+  Print "Add RoboShop User"
+  id roboshop &>>$LOG
+  if [ $? -eq 0 ]; then
+    echo User RoboShop already exists &>>$LOG
+  else
+    useradd roboshop  &>>$LOG
+  fi
+  Stat $?
+}
 
 SYSTEMD() {
   Print "Fix App Permissions"
@@ -107,22 +107,22 @@ MAVEN() {
   SYSTEMD
 }
 
-#NODEJS() {
-  #Print "Install NodeJS"
-  #yum install nodejs make gcc-c++ -y  &>>$LOG
-  #Stat $?
+NODEJS() {
+  Print "Install NodeJS"
+  yum install nodejs make gcc-c++ -y  &>>$LOG
+  Stat $?
 
-  #ROBOSHOP_USER
+  ROBOSHOP_USER
 
-  #DOWNLOAD "/home/roboshop"
+  DOWNLOAD "/home/roboshop"
 
-  #Print "Install NodeJS dependencies"
-  #cd /home/roboshop/${COMPONENT}
-  #npm install --unsafe-perm &>>$LOG
-  #Stat $?
+  Print "Install NodeJS dependencies"
+  cd /home/roboshop/${COMPONENT}
+  npm install --unsafe-perm &>>$LOG
+  Stat $?
 
-  #SYSTEMD
-#}
+  SYSTEMD
+}
 
 CHECK_MONGO_FROM_APP() {
   Print "Checking DB Connections from APP"
