@@ -22,7 +22,7 @@ unzip -d /usr/share/nginx/html /tmp/frontend.zip &>>$LOG
 Stat $?
 
 Print "Copy files to Nginx path"
-mv /tmp/frontend-main/static/* /usr/share/nginx/html/. &>>$LOG
+#mv /tmp/frontend-main/static/* /usr/share/nginx/html/. &>>$LOG
 Stat $?
 
 #Print "Copy Nginx Roboshop Config file"
