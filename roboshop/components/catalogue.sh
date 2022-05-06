@@ -32,7 +32,7 @@ mv /home/roboshop/catalogue-main /home/roboshop/catalogue &>>$LOG
 Stat $?
 
 Print "Install NodeJS Dependencies"
-npm install --unsafe-perm &>>$LOG
+npm install &>>$LOG
 Stat $?
 
 
