@@ -119,8 +119,7 @@ NODEJS() {
 
   Print "Install NodeJS dependencies"
   cd /home/roboshop/${COMPONENT}
-  npm install -y  &>>$LOG
- # npm install --unsafe-perm &>>$LOG
+  npm install --unsafe-perm &>>$LOG
   Stat $?
 
   SYSTEMD
