@@ -119,7 +119,7 @@ NODEJS() {
 
   Print "Install NodeJS dependencies"
   cd /home/roboshop/${COMPONENT}
-  yum install npm -y  &>>$LOG
+  npm install -y  &>>$LOG
  # npm install --unsafe-perm &>>$LOG
   Stat $?
 
