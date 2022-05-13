@@ -1,4 +1,4 @@
-#!git /bin/bash
+#!/bin/bash
 
 source components/common.sh
 MSPACE=$(cat $0 | grep Print | awk -F '"' '{print $2}' | awk '{ print length }' | sort | tail -1)
@@ -25,7 +25,7 @@ mv /tmp/frontend-main/static/* /usr/share/nginx/html/. &>>$LOG
 Stat $?
 
 Print "Copy Nginx Roboshop Config file"
-cp /tmp/frontend-main/localhost.conf root  &>>$LOG
+cp /tmp/frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf  &>>$LOG
 Stat $?
 
 Print "Update Nginx Config file"
