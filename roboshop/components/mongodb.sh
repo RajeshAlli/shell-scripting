@@ -34,4 +34,3 @@ for db in catalogue users ; do
   mongo < $db.js &>>$LOG
 done
 Stat $?
-
