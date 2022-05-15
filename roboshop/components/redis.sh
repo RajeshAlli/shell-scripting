@@ -20,6 +20,14 @@ Print "Update Redis Listen Address"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf &>>$LOG
 Stat $?
 
+DOWNLOAD "/tmp"
+
+Print "Load Schema"
+cd /tmp/redis-main
+for db in cart users ; do
+  redis < $db.js &>>$LOG
+done
+Stat $?
 
 Print "Start Redis Database"
 systemctl enable redis &>>$LOG && systemctl restart redis &>>$LOG
