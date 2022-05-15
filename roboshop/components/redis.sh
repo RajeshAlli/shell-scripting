@@ -20,7 +20,22 @@ Print "Update Redis Listen Address"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf &>>$LOG
 Stat $?
 
-DOWNLOAD "/tmp"
+DOWNLOAD() {
+  Print "Download $redis"
+  curl -s -L -o /tmp/${redis}.zip "https://github.com/roboshop-devops-project/${redis}/archive/main.zip" &>>$LOG
+  Stat $?
+  Print "Extract $redis Content"
+  unzip -o -d $1 /tmp/${redis}.zip &>>$LOG
+  Stat $?
+  if [ "$1" == "/home/roboshop" ]; then
+    Print "Remove Old Content"
+    rm -rf /home/roboshop/${redis}
+    Stat $?
+    Print "Copy Content"
+    mv /home/roboshop/${redis}-main /home/roboshop/${redis}
+    Stat $?
+  fi
+}
 
 Print "Load Schema"
 cd /tmp/redis-main
