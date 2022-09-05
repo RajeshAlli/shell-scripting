@@ -10,4 +10,4 @@ COMPONENT=cart
 
 NODEJS
 CHECK_REDIS_FROM_APP
-hello
+he
